@@ -476,6 +476,14 @@
         initializeSmsPhoneDropdown(fieldName);
       });
     });
+
+    function sendHeight() {
+    const height = document.body.scrollHeight;
+    parent.postMessage(height, "*"); // or use exact origin for security
+  }
+
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
     </script></div>
 
   
