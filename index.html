@@ -496,6 +496,32 @@
   window.addEventListener('resize', sendHeight);
     </script></div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const hideMessages = () => {
+        const error = document.getElementById('mce-error-response');
+        const success = document.getElementById('mce-success-response');
+        if (error) {
+            error.style.display = 'none';
+            error.style.height = '0';
+            error.style.overflow = 'hidden';
+        }
+        if (success) {
+            success.style.display = 'none';
+            success.style.height = '0';
+            success.style.overflow = 'hidden';
+        }
+    };
+
+    // Run once on load
+    hideMessages();
+
+    // Run again after Mailchimp JS renders (gives time for dynamic content)
+    setTimeout(hideMessages, 100);
+    setTimeout(hideMessages, 500);
+});
+    </script>
+
   
 
 </body>
